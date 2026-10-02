@@ -1,0 +1,19 @@
+flowchart TD
+    U[Developer] --> UI[Streamlit Web UI]
+    UI --> IN[Bug report / stack trace]
+    UI --> UP[Source files or ZIP upload]
+    UP --> SAFE[File type, size and folder filters]
+    SAFE --> TXT[Text extraction in memory]
+    TXT --> RET[TF-IDF context retrieval]
+    IN --> RET
+    RET --> CTX[Top relevant source snippets]
+    CTX --> ORCH[Debug analysis coordinator]
+    IN --> ORCH
+    ORCH --> MODE{LLM API key configured?}
+    MODE -- Yes --> LLM[OpenAI-compatible API\nQwen or another available model]
+    MODE -- No --> DEMO[Heuristic demo analyzer]
+    LLM --> OUT[Structured debugging report]
+    DEMO --> OUT
+    OUT --> UI
+    UI --> DL[Download Markdown report]
+    SAFE -. "Never execute uploaded code" .-> GUARD[Safety boundary]
