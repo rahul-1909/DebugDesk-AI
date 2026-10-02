@@ -1,4 +1,4 @@
-# DebugDesk AI — MVP
+# DebugDesk AI - MVP
 
 DebugDesk AI helps developers investigate errors by combining a bug report or stack trace with relevant source files. It retrieves likely relevant files using TF-IDF and produces a structured diagnosis, debugging checklist, and regression-test plan.
 
